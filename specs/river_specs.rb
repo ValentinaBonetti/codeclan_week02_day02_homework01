@@ -8,13 +8,14 @@ class TestRiver < Minitest::Test
 
   # arrange
   def setup
-    @amazon = River.new("Amazon")
     @fish01 = Fish.new("Merlino")
     @fish02 = Fish.new("Anacleto")
+    fauna = [@fish01,@fish02]
+    @amazon = River.new("Amazon",fauna)
   end
 
   def test_fauna_counter #fish_count
-    expected = 0
+    expected = 2
     actual = @amazon.fauna_counter
     assert_equal(expected,actual)
   end
@@ -22,7 +23,7 @@ class TestRiver < Minitest::Test
   def test_add_fish_to_river
     @amazon.add_fish_to_river(@fish01)
     @amazon.add_fish_to_river(@fish02)
-    expected = 2
+    expected = 4
     actual = @amazon.fauna_counter
     assert_equal(expected,actual)
   end
@@ -31,7 +32,7 @@ class TestRiver < Minitest::Test
     @amazon.add_fish_to_river(@fish01)
     @amazon.add_fish_to_river(@fish02)
     @amazon.remove_fish_from_river
-    expected = 1
+    expected = 3
     actual = @amazon.fauna_counter
     assert_equal(expected,actual)
   end

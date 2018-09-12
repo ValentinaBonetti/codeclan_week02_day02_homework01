@@ -2,9 +2,9 @@ class River
 
   attr_reader :name
 
-  def initialize(name)
+  def initialize(name,fauna)
     @name = name
-    @fauna = []
+    @fauna = fauna 
   end
 
   def fauna_counter

@@ -10,7 +10,7 @@ class TestBear < Minitest::Test
   def setup
     @bear01 = Bear.new("Jack","Grizzly")
     @bear02 = Bear.new("Louise","White")
-    @amazon = River.new("Amazon")
+    @amazon = River.new("Amazon",[])
     @fish01 = Fish.new("Merlino")
     @fish02 = Fish.new("Anacleto")
   end
@@ -26,10 +26,8 @@ class TestBear < Minitest::Test
   def test_get_fish_from_river
     @amazon.add_fish_to_river(@fish01)
     fishes_before = @amazon.fauna_counter
-    p "fishes before: #{fishes_before}"
     @bear01.get_fish_from_river(@amazon)
     fishes_after = @amazon.fauna_counter
-    p "fishes after: #{fishes_after}"
     assert_equal(1,@bear01.stomach_level)
     assert_equal(1,fishes_before-fishes_after)
   end
