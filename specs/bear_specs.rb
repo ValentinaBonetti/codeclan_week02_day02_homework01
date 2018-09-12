@@ -9,10 +9,8 @@ class TestBear < Minitest::Test
   # arrange
   def setup
     @bear01 = Bear.new("Jack","Grizzly")
-    @bear02 = Bear.new("Louise","White")
     @amazon = River.new("Amazon",[])
     @fish01 = Fish.new("Merlino")
-    @fish02 = Fish.new("Anacleto")
   end
 
   def test_stomach_level #food_count

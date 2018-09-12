@@ -4,7 +4,7 @@ class River
 
   def initialize(name,fauna)
     @name = name
-    @fauna = fauna 
+    @fauna = fauna
   end
 
   def fauna_counter
@@ -16,10 +16,9 @@ class River
   end
 
   def remove_fish_from_river
+    # this returns the last element of the fauna array 
     if @fauna.length != 0
-      removed_fish = @fauna[0]
-      @fauna.delete_at(0)
-      return removed_fish
+      return @fauna.pop
     end
   end
 

@@ -1,6 +1,5 @@
 class Bear
 
-
   def initialize(name,type)
     @name = name
     @type = type
@@ -14,7 +13,6 @@ class Bear
   def get_fish_from_river(river)
     if river.fauna_counter != 0
       @stomach << river.remove_fish_from_river
-      p @stomach 
     end
 
   end
@@ -22,6 +20,5 @@ class Bear
   def roar
     return "Roooaaarrrrr!"
   end
-
 
 end

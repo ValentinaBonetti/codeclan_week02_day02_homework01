@@ -2,11 +2,10 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../river")
 require_relative("../fish")
-require_relative("../bear")
 
 class TestRiver < Minitest::Test
 
-  # arrange
+  # arrange (set up the input that methods need)
   def setup
     @fish01 = Fish.new("Merlino")
     @fish02 = Fish.new("Anacleto")
@@ -29,14 +28,13 @@ class TestRiver < Minitest::Test
   end
 
   def test_remove_fish_from_river
-    @amazon.add_fish_to_river(@fish01)
-    @amazon.add_fish_to_river(@fish02)
-    @amazon.remove_fish_from_river
-    expected = 3
+    returned_fish = @amazon.remove_fish_from_river
+    expected = 1
     actual = @amazon.fauna_counter
+    # we need to check if a fish has been removed and
+    # that a fish is actually returned by the function
     assert_equal(expected,actual)
+    assert_equal(Fish,returned_fish.class)
   end
-
-
 
 end
