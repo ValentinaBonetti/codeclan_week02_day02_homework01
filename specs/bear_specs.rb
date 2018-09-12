@@ -15,7 +15,7 @@ class TestBear < Minitest::Test
     @fish02 = Fish.new("Anacleto")
   end
 
-  def test_stomach_level #food_count 
+  def test_stomach_level #food_count
     @amazon.add_fish_to_river(@fish01)
     @bear01.get_fish_from_river(@amazon)
     expected = 1
@@ -26,8 +26,10 @@ class TestBear < Minitest::Test
   def test_get_fish_from_river
     @amazon.add_fish_to_river(@fish01)
     fishes_before = @amazon.fauna_counter
+    p "fishes before: #{fishes_before}"
     @bear01.get_fish_from_river(@amazon)
     fishes_after = @amazon.fauna_counter
+    p "fishes after: #{fishes_after}"
     assert_equal(1,@bear01.stomach_level)
     assert_equal(1,fishes_before-fishes_after)
   end

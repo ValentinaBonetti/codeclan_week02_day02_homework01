@@ -17,8 +17,10 @@ class River
 
   def remove_fish_from_river
     if @fauna.length != 0
+      removed_fish = @fauna[0]
       @fauna.delete_at(0)
+      return removed_fish
     end
-  end 
+  end
 
 end

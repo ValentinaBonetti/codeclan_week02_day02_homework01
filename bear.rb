@@ -13,9 +13,10 @@ class Bear
 
   def get_fish_from_river(river)
     if river.fauna_counter != 0
-      @stomach << "fish"
+      @stomach << river.remove_fish_from_river
+      p @stomach 
     end
-    river.remove_fish_from_river
+
   end
 
   def roar
